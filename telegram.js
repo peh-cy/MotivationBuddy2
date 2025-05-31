@@ -69,7 +69,16 @@ bot.on(message('text'), async (ctx) => {
                     telegram_chat_id: ctx.chat.id // <-- Store chat id for scheduling
                     }
                 });
-                await ctx.reply("I have retrieved your sign up details. I will be sending you messages to uplift your spirits at the timings you have indicated!");
+
+                // Prepare interest areas string
+                const interestsText = user.interests.length > 0
+                    ? user.interests.join(', ')
+                    : 'None Specified';
+
+                // Prepare timings string
+                const timingsText = user.message_times.join(', ');
+
+                await ctx.reply(`Hi ${user.name}! I have retrieved your sign up details. I will be sending you messages to uplift your spirits at the timings you have indicated!\nYour interest areas: ${interestsText}\nTimings: ${timingsText}`);
             } else {
                 await ctx.reply('Invalid code. Please enter again.');
               }
