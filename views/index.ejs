@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>  
+  <title>Motivation Buddy Sign Up Form</title>
+      <link rel="stylesheet" href="/styles.css">
+
+<!-- Google tag (gtag.js) -->
+ <script async src="https://www.googletagmanager.com/gtag/js?id=G-DJH1ZJR0FM"></script>
+ <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DJH1ZJR0FM');
+</script>
+
+</head>
+
+<body>
+    <div class="container">
+        <h1 id="title">Motivation Buddy</h1>
+        <p class="signup-encouragement">
+            🔋 Start every day with a boost of positivity delivered right to your phone.<br>You’re just one step away - sign up now! <span class="bounce-arrow">⬇️</span>
+        </p>
+    
+        <%# kiv adding action and method attributes to cater to normal form submission when Javascript (AJAX) is not available. %>
+        <form id="signup-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            
+            <label>Select your interest areas to receive personalised messages:</label>      
+            <div class="checkbox-group">
+                <div>
+                    <input type="checkbox" id="interest-foodie" name="interests" value="Foodie">
+                    <label for="interest-foodie">Foodie</label>
+                </div>
+                
+                <div>
+                    <input type="checkbox" id="interest-sports" name="interests" value="Sports and Fitness">
+                    <label for="interest-sports">Sports and Fitness</label>
+                </div>
+                
+                <div>
+                    <input type="checkbox" id="interest-travelling" name="interests" value="Travelling">
+                    <label for="interest-travelling">Travelling</label>
+                </div>
+            </div>
+            <p style="font-size:0.80em; color:#000000; margin-top:20px; margin-bottom:30px;">
+                In this initial release, you can select up to 3 interest areas. You can skip this if you have no preference.
+            </p>
+    
+            <label>Select up to 3 timings to receive your messages daily:</label>
+            <input type="time" id="message-time1" name="message-time1">
+            <input type="time" id="message-time2" name="message-time2">
+            <input type="time" id="message-time3" name="message-time3">
+            <p style="font-size:0.80em; color:#000000; margin-top:0px;">
+                In this initial release, you can select up to 3 timings to receive motivational messages.
+            </p>
+    
+            <button type="submit" id="subscribe-btn">Subscribe</button>
+    
+            <span id="formValidationMsg" class="validation-msg" aria-live="polite"></span>
+        </form>
+    </div>
+
+    <% if (typeof msg !== 'undefined') { %>
+        <div class="server-msg" style="color:<%= color %>;">
+            <%= msg %>
+        </div>
+    <% } %>
+
+    <% if (typeof signup_code !== 'undefined' && signup_code) { %>
+        <div class="server-msg">
+            <strong>Your unique code:</strong>
+            <div style="font-size:1.6em; margin:10px 0; color:#a9446e;"><%= signup_code %></div>
+            <div>
+                <a href="https://t.me/MyMotivationBuddy_Bot" target="_blank" style="color:#2a7ae2;">Click here to open the Telegram bot</a><br>
+                and send the code above to start receiving messages.
+            </div>
+        </div>
+    <% } %>
+
+    <div id="signupCodeBox"></div>
+
+    <div class="description-box">
+        <h2>About Motivation Buddy</h2>
+        <p><span class="highlight">Motivation Buddy</span> is your personalised source of daily encouragement.</p>
+        <p>Get uplifting messages at your chosen times, helping you stay inspired every day.</p>
+        
+        <h2>Story Behind Motivation Buddy</h2>
+        <p>Do you know that over 40% of workers in Singapore struggle to stay motivated?</p>
+        <p>Many face these challenges alone. We created Motivation Buddy to offer positive reminders and real support.</p>
+
+        <h2>How It Works</h2>
+        <p>Just fill up the form, connect to our Telegram bot, and let Motivation Buddy send you encouragement when you need it most.</p>
+
+        <h2>Why Sign Up?</h2>
+        <p>Choose your message timings and personalise your experience by selecting your interests.</p>
+        <p>This ensures every message arrives at the perfect moment and truly resonates with you.</p>
+        <p><span class="highlight">Stay motivated, focused, and positive — every day. And it's free!</span></p>
+
+        <p class="disclaimer">
+            Disclaimer: <br>
+            This website is created for learning purposes only. The information provided here should not be considered professional advice. Please note that we make no guarantees regarding the accuracy, completeness, or reliability of the contents of this website. Any actions you take based on the contents of this website are at your own risk. We are not liable for any losses or damages incurred from the use of this website.
+        </p>
+    </div>
+    
+    <script src="/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</body>
+</html>
