@@ -152,10 +152,14 @@ cron.schedule('* * * * *', async () => {
             );
             // announcement starts
             const updateMessage = `📢 <b>Updates:</b> 1. Library of motivational messages is expanded. 
+
 2. Mindfulness 🧘‍♀️ is added as a new area of interest which you can receive motivational messages on. Existing users who selected other areas of interest and interested in messages on mindfulness may resubscribe at <a href="https://motivation-buddy.com/">Motivation Buddy</a>. For users who did not select any areas of interest, Motivation Buddy Bot will randomly select a message across all areas.
+
 3. Motivation Buddy Bot will indicate the areas of interests and timings you selected. This is applicable for new sign-ups. 
+
 <b>Stay Motivated Daily! 🔥🔥🔥</b> 
-<i>This update will be delivered to all existing users on 2 Jun 2025.</i>`;
+
+<i>This announcement is delivered to all existing users on 2 Jun 2025.</i>`;
 
             await bot.telegram.sendMessage(
               user.telegram_chat_id.toString(),
