@@ -84,3 +84,10 @@ app.post('/subscribe', async function(req, res) {
 
 // Tells the app which port to run on
 app.listen(8080);
+
+// Self-ping every 14 minutes
+setInterval(() => {
+  fetch('https://motivationbuddy2.onrender.com/')
+    .then(res => console.log(`Self-ping status: ${res.status}`))
+    .catch(err => console.error('Self-ping failed:', err));
+}, 14 * 60 * 1000);
